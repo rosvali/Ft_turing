@@ -2,27 +2,32 @@
     "name": "palindrome",
     "alphabet": [ "1", ".", "0" ],
     "blank" : ".",
-    "states" : [ "scanright", "eraseone", "addone", "skip", "HALT" ],
-    "initial" : "scanright",
+    "states" : [ "q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "HALT" ],
+    "initial" : "q0",
     "finals" : [ "HALT" ],
     "transitions" : {
-        "scanright": [
-            { "read" : ".", "to_state": "scanright", "write": ".", "action": "RIGHT"},
-            { "read" : "1", "to_state": "scanright", "write": "1", "action": "RIGHT"},
-            { "read" : "+", "to_state": "scanright", "write": "+", "action": "RIGHT"},
-            { "read" : "=", "to_state": "eraseone" , "write": ".", "action": "LEFT" }
-        ],
-        "eraseone": [
-            { "read" : "1", "to_state": "addone", "write": "=", "action": "LEFT"},
-            { "read" : "+", "to_state": "HALT" , "write": ".", "action": "LEFT"}
-        ],
-        "addone": [
-            { "read" : "1", "to_state": "addone", "write": "1", "action": "LEFT"},
-            { "read" : "+", "to_state": "skip" , "write": "+", "action": "LEFT"}
-        ],
-        "skip": [
-            { "read" : ".", "to_state": "skip" , "write": ".", "action": "LEFT"},
-            { "read" : "1", "to_state": "scanright", "write": "1", "action": "RIGHT"}
-        ]
+
+	"q0": [
+	    { "read" : ".", "to_state": "HALT", "write": ".", "action": "RIGHT"},
+	    { "read" : "0", "to_state": "q1", "write": ".", "action": "RIGHT"},
+	    { "read" : "1", "to_state": "q2", "write": ".", "action": "RIGHT"}
+	],
+        "q1": [
+	    { "read" : ".", "to_state": "HALT", "write": ".", "action": "RIGHT"}
+	    
+	],
+	"q2": [
+	    { "read" : ".", "to_state": "HALT", "write": ".", "action": "RIGHT"}
+	],
+	"q3": [
+	    { "read" : "0", "to_state": "q3", "write": "0", "action": "RIGHT"},
+	    { "read" : "1", "to_state": "q3", "write": "1", "action": "RIGHT"},
+	    { "read" : ".", "to_state": "q5", "write": ".", "action": "LEFT"}
+	],
+	"q5": [
+	    { "read" : "0", "to_state": "q5", "write": "0", "action": "LEFT"},
+	    { "read" : "1", "to_state": "q5", "write": "1", "action": "LEFT"},
+	    { "read" : ".", "to_state": "", "write": ".", "action": "LEFT"}
+	]
     }
 }
