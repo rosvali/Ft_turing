@@ -1,0 +1,16 @@
+{
+    "name": "machine4",
+    "alphabet": [ "0", ".", "x"],
+    "blank" : ".",
+    "states" : [ "q0", "q1", "q2", "q3", "q4", "valid", "invalid", "HALT" ],
+    "initial" : "q0",
+    "finals" : [ "HALT" ],
+    "transitions" : {
+        "q0": [
+            { "read" : "0", "to_state": "q1", "write": "." , "action": "RIGHT"}
+        ],
+        "q1": [
+            { "read" : "0", "to_state": "q1", "write": "0" , "action": "RIGHT"}
+        ]
+    }
+}
