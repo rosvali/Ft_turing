@@ -1,0 +1,22 @@
+{
+	"name" : "02n_checker",
+	"alphabet": [ "0", "y", "n", "."],
+	"blank" : ".",
+	"states" : ["scanright", "check_pair", "check_unpair", "HALT"],
+	"initial" : "scanright",
+	"finals" : ["HALT"],
+	"transitions" : {
+		"scanright": [
+			{ "read" : "0", "to_state": "check_pair", "write": "0", "action": "RIGHT"},
+			{ "read" : ".", "to_state": "HALT", "write": "n", "action": "RIGHT"}
+		],
+		"check_pair": [
+			{ "read" : "0", "to_state": "check_unpair", "write": "0", "action": "RIGHT"},
+			{ "read" : ".", "to_state": "HALT", "write": "n", "action": "RIGHT"}
+		],
+		"check_unpair": [
+			{ "read" : "0", "to_state": "check_pair", "write": "0", "action": "RIGHT"},
+			{ "read" : ".", "to_state": "HALT", "write": "y", "action": "RIGHT"}
+		]
+	}
+}

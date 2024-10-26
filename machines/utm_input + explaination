@@ -1,0 +1,27 @@
+1.+=|.|ABCDE|A|E|A.A.RA1A1RA+A+RA=B.LB1C=LB+E.LC1C1LC+D1RD1D1RD=E.R|_11+11=
+
+
+`1.+=`		l'alphabet de notre machine unary_sub
+`|`			fin d'instruction
+`.`			blank
+`|`			fin d'insctruction
+`ABCDE`		Nos states
+`|`			fin d'instruction
+`A`			initial state
+`|`			fin d'instruction 
+`E`			final state
+`|`			fin d'instruction
+`A.A.R`		et chaque groupement de 5 char aura : key state entree, lecture, key state sortie, ecriture, direction
+			Donc ici : key state `A`, lecture du char `.`, on va a la state `A`, on ecrit `.` et on deplace la tete de lecture a droite parce que `R`
+`A1A1R`		key state `A`, lecture du char `1`, on va a la state `A`, on ecrit `1` et on deplace la tete de lecture a droite parce que `R`
+`A+A+R`		Flemme
+`A=B.L` 	d'ecrire chaque precision
+`B1C=L`		mais tu comprend
+`B+E.L`
+`C1C1L`
+`C+D1R`
+`D1D1R`
+`D=E.R`
+`|`			fin d'instruction
+`_`			debut de lecture de l'input de la machine
+`11+11=`	input de la machine

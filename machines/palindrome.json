@@ -52,7 +52,7 @@
 		"q8n": [
 			{ "read" : "1", "to_state": "q8n", "write": ".", "action": "RIGHT"},
 			{ "read" : "0", "to_state": "q8n", "write": ".", "action": "RIGHT"},
-			{ "read" : ".", "to_state": "q8n", "write": "n", "action": "RIGHT"}
+			{ "read" : ".", "to_state": "HALT", "write": "n", "action": "RIGHT"}
 		]
     }
 }
